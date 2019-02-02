@@ -1,0 +1,12 @@
+F:\程序\C#\txl\txl\bin\Debug\txl.exe.config
+F:\程序\C#\txl\txl\bin\Debug\txl.exe
+F:\程序\C#\txl\txl\bin\Debug\txl.pdb
+F:\程序\C#\txl\txl\obj\Debug\txl.csprojResolveAssemblyReference.cache
+F:\程序\C#\txl\txl\obj\Debug\txl.Form1.resources
+F:\程序\C#\txl\txl\obj\Debug\txl.Properties.Resources.resources
+F:\程序\C#\txl\txl\obj\Debug\txl.csproj.GenerateResource.Cache
+F:\程序\C#\txl\txl\obj\Debug\txl.exe
+F:\程序\C#\txl\txl\obj\Debug\txl.pdb
+F:\程序\C#\txl\txl\obj\Debug\txl.Form2.resources
+F:\程序\C#\txl\txl\obj\Debug\txl.login.resources
+F:\程序\C#\txl\txl\obj\Debug\txl.find.resources
