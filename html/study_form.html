@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        html表单
+    </title>
+</head>
+
+<body>
+    <!-- 表单是一个包含表单元素的区域。
+        表单元素是允许用户在表单中输入内容,比如：文本域(textarea)、下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等。
+        表单使用表单标签 <form> 来设置-->
+    <!-- 多数情况下被用到的表单标签是输入标签（<input>）。
+        输入类型是由类型属性（type）定义的。大多数经常被用到的输入类型如下
+        text：文本
+        password：密码
+        radio：单选按钮
+        checkbox：复选框
+        submit：提交按钮-->
+    <form>
+        First name: <input type="text" name="firstname"><br>
+        Last name: <input type="text" name="lastname"><br>
+    </form>
+
+    <form>
+        First name: <input type="text" name="firstname"><br>
+        Last name: <input type="text" name="lastname"><br>
+        Password: <input type="password" name="pwd"><br>
+    </form>
+
+    <form>
+        <input type="radio" name="sex" value="male">Male<br>
+        <input type="radio" name="sex" value="female">Female
+    </form>
+
+    <form>
+        <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+        <input type="checkbox" name="vehicle" value="Car">I have a car
+    </form>
+
+    <!-- <input type="submit"> 定义了提交按钮.
+        当用户单击确认按钮时，表单的内容会被传送到另一个文件。表单的动作属性定义了目的文件的文件名。由动作属性定义的这个文件通常会对接收到的输入数据进行相关的处理。-->
+    <form name="input" action="html_form_action.php" method="get">
+        Username: <input type="text" name="user">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<footer>
+    pass
+</footer>
+
+</html>
