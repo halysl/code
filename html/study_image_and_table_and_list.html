@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>这是关于image/table/list的文档</title>
+
+</head>
+
+<body>
+    <h1>这是关于image的文档</h1>
+    <!-- 在 HTML 中，图像由<img> 标签定义。
+        <img> 是空标签，意思是说，它只包含属性，并且没有闭合标签。
+        要在页面上显示图像，你需要使用源属性（src）。src 指 "source"。源属性的值是图像的 URL 地址。-->
+    <!-- <img src="url" alt="some_text"> -->
+    <img src="https://i0.hdslb.com/bfs/bangumi/f34ff3975c39913af936c133ae60a5891babba08.png@450w_600h.webp">
+
+    <br>
+    <!-- alt 属性用来为图像定义一串预备的可替换的文本。 -->
+    <img src="cannot find" alt="这是找不到的照片">
+
+    <br>
+    <!-- height（高度） 与 width（宽度）属性用于设置图像的高度与宽度。
+        属性值默认单位为像素-->
+    <img src="https://i0.hdslb.com/bfs/bangumi/f34ff3975c39913af936c133ae60a5891babba08.png@450w_600h.webp" alt="JoJo4"
+        width="50" height="50">
+
+    <hr>
+    <h1>这是关于table的文档</h1>
+    <!-- 表格由 <table> 标签来定义。每个表格均有若干行（由 <tr> 标签定义），每行被分割为若干单元格（由 <td> 标签定义）。
+        字母 td 指表格数据（table data），即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。-->
+    <table border="1">
+        <tr>
+            <td>row 1, cell 1</td>
+            <td>row 1, cell 2</td>
+        </tr>
+        <tr>
+            <td>row 2, cell 1</td>
+            <td>row 2, cell 2</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table border="1">
+        <tr>
+            <td>Row 1, cell 1</td>
+            <td>Row 1, cell 2</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <!-- 表格的表头使用 <th> 标签进行定义。 -->
+    <table border="1">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        <tr>
+            <td>row 1, cell 1</td>
+            <td>row 1, cell 2</td>
+        </tr>
+        <tr>
+            <td>row 2, cell 1</td>
+            <td>row 2, cell 2</td>
+        </tr>
+    </table>
+    <hr>
+    <h1>这是关于list的文档</h1>
+    <!-- 无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。
+        无序列表使用 <ul> 标签 -->
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+    </ul>
+    <br>
+    <!-- 同样，有序列表也是一列项目，列表项目使用数字进行标记。 有序列表始于 <ol> 标签。每个列表项始于 <li> 标签。
+        列表项使用数字来标记。 -->
+    <ol>
+        <li>Coffee</li>
+        <li>Milk</li>
+    </ol>
+    <br>
+    <!-- 自定义列表不仅仅是一列项目，而是项目及其注释的组合。
+        自定义列表以 <dl> 标签开始。每个自定义列表项以 <dt> 开始。每个自定义列表项的定义以 <dd> 开始。-->
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
+</body>
+
+</html>
