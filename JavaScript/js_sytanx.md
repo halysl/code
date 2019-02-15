@@ -201,3 +201,140 @@ document.write("你好 \
 document.write \ 
 ("你好世界!");
 ```
+
+### 函数
+
+函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试实例</title>
+<script>
+function myFunction()
+{
+    alert("Hello World!");
+}
+</script>
+</head>
+ 
+<body>
+<button onclick="myFunction()">点我</button>
+</body>
+</html>
+```
+
+js 函数声明
+
+```js
+function functionname()
+{
+    // 执行代码
+}
+```
+
+可以在某事件发生时直接调用函数（比如当用户点击按钮时），并且可由 JavaScript 在任何位置进行调用。
+
+#### 调用带参数的函数
+
+```js
+function myFunction(var1,var2)
+{
+代码
+}
+```
+
+#### 带有返回值的函数
+
+```js
+function myFunction()
+{
+    var x=5;
+    return x;
+}
+```
+
+### 作用域
+
+#### 局部作用域
+
+```js
+// 此处不能调用 carName 变量
+function myFunction() {
+    var carName = "Volvo";
+    // 函数内可调用 carName 变量
+}
+```
+
+#### 全局变量
+变量在函数外定义，即为全局变量。
+
+全局变量有 全局作用域: 网页中所有脚本和函数均可使用。 
+
+```js
+var carName = " Volvo";
+ 
+// 此处可调用 carName 变量
+function myFunction() {
+    // 函数内可调用 carName 变量
+}
+```
+
+如果变量在函数内没有声明（没有使用 var 关键字），该变量为全局变量。
+
+```
+// 此处可调用 carName 变量
+ 
+function myFunction() {
+    carName = "Volvo";
+    // 此处可调用 carName 变量
+}
+```
+
+#### HTML 中的全局变量
+
+在 HTML 中, 全局变量是 window 对象: 所有数据变量都属于 window 对象。
+
+```
+//此处可使用 window.carName
+ 
+function myFunction() {
+    carName = "Volvo";
+}
+```
+
+### JavaScript 事件
+
+HTML 事件是发生在 HTML 元素上的事情。
+
+当在 HTML 页面中使用 JavaScript 时， JavaScript 可以触发这些事件。
+
+HTML 事件可以是浏览器行为，也可以是用户行为。
+
+以下是 HTML 事件的实例：
+
+- HTML 页面完成加载
+- HTML input 字段改变时
+- HTML 按钮被点击
+
+通常，当事件发生时，你可以做些事情。
+
+在事件触发时 JavaScript 可以执行一些代码。
+
+HTML 元素中可以添加事件属性，使用 JavaScript 代码来添加 HTML 元素。
+
+
+
+#### 常见的HTML事件
+
+| 事件        | 描述                         |
+| ----------- | ---------------------------- |
+| onchange    | HTML 元素改变                |
+| onclick     | 用户点击 HTML 元素           |
+| onmouseover | 用户在一个HTML元素上移动鼠标 |
+| onmouseout  | 用户从一个HTML元素上移开鼠标 |
+| onkeydown   | 用户按下键盘按键             |
+| onload      | 浏览器已完成页面的加载       |
+

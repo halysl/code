@@ -26,3 +26,7 @@ function var_object() {
 
     document.write(car.now())
 }
+
+function displayDate() {
+    document.getElementById('now').innerHTML=Date();
+}
