@@ -387,3 +387,88 @@ HTML 元素中可以添加事件属性，使用 JavaScript 代码来添加 HTML 
 | trim()              | 移除字符串首尾空白                                           |
 | valueOf()           | 返回某个字符串对象的原始值                                   |
 
+### 条件语句
+
+通常在写代码时，您总是需要为不同的决定来执行不同的动作。您可以在代码中使用条件语句来完成该任务。
+
+在 JavaScript 中，我们可使用以下条件语句：
+
+- if 语句 - 只有当指定条件为 true 时，使用该语句来执行代码
+
+```
+if (condition)
+{
+    当条件为 true 时执行的代码
+}
+```
+
+- if...else 语句 - 当条件为 true 时执行代码，当条件为 false 时执行其他代码
+
+```
+if (condition)
+{
+    当条件为 true 时执行的代码
+}
+else
+{
+    当条件不为 true 时执行的代码
+}
+```
+
+- if...else if....else 语句- 使用该语句来选择多个代码块之一来执行
+
+```
+if (condition1)
+{
+    当条件 1 为 true 时执行的代码
+}
+else if (condition2)
+{
+    当条件 2 为 true 时执行的代码
+}
+else
+{
+  当条件 1 和 条件 2 都不为 true 时执行的代码
+}
+```
+
+- switch 语句 - 使用该语句来选择多个代码块之一来执行
+
+```
+switch(n)
+{
+    case 1:
+        执行代码块 1
+        break;
+    case 2:
+        执行代码块 2
+        break;
+    default:
+        与 case 1 和 case 2 不同时执行的代码
+}
+```
+
+首先设置表达式 n（通常是一个变量）。随后表达式的值会与结构中的每个 case 的值做比较。如果存在匹配，则与该 case 关联的代码块会被执行。请使用 break 来阻止代码自动地向下一个 case 运行。
+
+使用 default 关键词来规定匹配不存在时做的事情
+
+```
+var d=new Date().getDay(); 
+switch (d) 
+{ 
+  case 0:x="今天是星期日"; 
+  break; 
+  case 1:x="今天是星期一"; 
+  break; 
+  case 2:x="今天是星期二"; 
+  break; 
+  case 3:x="今天是星期三"; 
+  break; 
+  case 4:x="今天是星期四"; 
+  break; 
+  case 5:x="今天是星期五"; 
+  break; 
+  case 6:x="今天是星期六"; 
+  break; 
+}
+```
