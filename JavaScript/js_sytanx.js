@@ -30,3 +30,10 @@ function var_object() {
 function displayDate() {
     document.getElementById('now').innerHTML=Date();
 }
+
+function add_str() {
+    var a = 'hello';
+    var b = 'world';
+
+    document.write(a + b);
+}
