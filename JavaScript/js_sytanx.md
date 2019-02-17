@@ -206,7 +206,7 @@ document.write \
 
 函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -284,7 +284,7 @@ function myFunction() {
 
 如果变量在函数内没有声明（没有使用 var 关键字），该变量为全局变量。
 
-```
+```js
 // 此处可调用 carName 变量
  
 function myFunction() {
@@ -297,7 +297,7 @@ function myFunction() {
 
 在 HTML 中, 全局变量是 window 对象: 所有数据变量都属于 window 对象。
 
-```
+```js
 //此处可使用 window.carName
  
 function myFunction() {
@@ -395,7 +395,7 @@ HTML 元素中可以添加事件属性，使用 JavaScript 代码来添加 HTML 
 
 - if 语句 - 只有当指定条件为 true 时，使用该语句来执行代码
 
-```
+```js
 if (condition)
 {
     当条件为 true 时执行的代码
@@ -404,7 +404,7 @@ if (condition)
 
 - if...else 语句 - 当条件为 true 时执行代码，当条件为 false 时执行其他代码
 
-```
+```js
 if (condition)
 {
     当条件为 true 时执行的代码
@@ -417,7 +417,7 @@ else
 
 - if...else if....else 语句- 使用该语句来选择多个代码块之一来执行
 
-```
+```js
 if (condition1)
 {
     当条件 1 为 true 时执行的代码
@@ -434,7 +434,7 @@ else
 
 - switch 语句 - 使用该语句来选择多个代码块之一来执行
 
-```
+```js
 switch(n)
 {
     case 1:
@@ -452,7 +452,7 @@ switch(n)
 
 使用 default 关键词来规定匹配不存在时做的事情
 
-```
+```js
 var d=new Date().getDay(); 
 switch (d) 
 { 
@@ -472,3 +472,189 @@ switch (d)
   break; 
 }
 ```
+
+### 循环
+如果您希望一遍又一遍地运行相同的代码，并且每次的值都不同，那么使用循环是很方便的。
+
+JavaScript 支持不同类型的循环：
+
+- for - 循环代码块一定的次数
+- for/in - 循环遍历对象的属性
+- while - 当指定的条件为 true 时循环指定的代码块
+- do/while - 同样当指定的条件为 true 时循环指定的代码块
+
+#### for循环
+
+```js
+// 类似于C
+for (语句 1; 语句 2; 语句 3)
+{
+    被执行的代码块
+}
+```
+
+语句 1 （代码块）开始前执行
+
+语句 2 定义运行循环（代码块）的条件
+
+语句 3 在循环（代码块）已被执行之后执行
+
+```js
+for (var i=0; i<5; i++)
+{
+      x=x + "该数字为 " + i + "<br>";
+}
+```
+
+#### for...in...
+
+for/in 语句循环遍历对象的属性。
+
+```js
+var person={fname:"John",lname:"Doe",age:25}; 
+ 
+for (x in person)  // x 为属性名
+{
+    txt=txt + person[x];
+}
+```
+
+#### while循环
+
+while 循环会在指定条件为真时循环执行代码块。
+
+```js
+while (条件)
+{
+    需要执行的代码
+}
+```
+
+```js
+while (i<5)
+{
+    x=x + "The number is " + i + "<br>";
+    i++;
+}
+```
+
+#### do...while循环
+
+do/while 循环是 while 循环的变体。该循环会在检查条件是否为真之前执行一次代码块，然后如果条件为真的话，就会重复这个循环。
+
+```js
+do
+{
+    需要执行的代码
+}
+while (条件);
+```
+
+```js
+do
+{
+    x=x + "The number is " + i + "<br>";
+    i++;
+}
+while (i<5);
+```
+
+### break语句
+break 语句用于跳出循环。
+
+break 语句跳出循环后，会继续执行该循环之后的代码
+
+```js
+or (i=0;i<10;i++)
+{
+    if (i==3)
+    {
+        break;
+    }
+    x=x + "The number is " + i + "<br>";
+}
+```
+
+### continue语句
+
+continue 用于跳过循环中的一个迭代。
+
+continue 语句中断循环中的迭代，如果出现了指定的条件，然后继续循环中的下一个迭代。
+
+```js
+for (i=0;i<=10;i++)
+{
+    if (i==3) continue;
+    x=x + "The number is " + i + "<br>";
+}
+```
+
+### typeof
+
+类似于 python 里的 type，用来检测变量的数据类型。
+
+```js
+typeof "John"                // 返回 string 
+typeof 3.14                  // 返回 number
+typeof false                 // 返回 boolean
+typeof [1,2,3,4]             // 返回 object
+typeof {name:'John', age:34} // 返回 object
+```
+
+#### null
+
+在 JavaScript 中 null 表示 "什么都没有"。
+
+null是一个只有一个值的特殊类型。表示一个空对象引用。
+
+#### undefined
+在 JavaScript 中, undefined 是一个没有设置值的变量。
+
+typeof 一个没有值的变量会返回 undefined。
+
+> null 和 undefined 的值相等，但类型不等.
+
+### 数据类型
+
+在 JavaScript 中有 5 种不同的数据类型：
+
+- string
+- number
+- boolean
+- object
+- function
+
+3 种对象类型：
+
+- Object
+- Date
+- Array
+
+2 个不包含任何值的数据类型：
+
+- null
+- undefined
+
+
+```js
+typeof "John"                 // 返回 string 
+typeof 3.14                   // 返回 number
+typeof NaN                    // 返回 number
+typeof false                  // 返回 boolean
+typeof [1,2,3,4]              // 返回 object
+typeof {name:'John', age:34}  // 返回 object
+typeof new Date()             // 返回 object
+typeof function () {}         // 返回 function
+typeof myCar                  // 返回 undefined (如果 myCar 没有声明)
+typeof null                   // 返回 object
+```
+
+请注意：
+
+- NaN 的数据类型是 number
+- 数组(Array)的数据类型是 object
+- 日期(Date)的数据类型为 object
+- null 的数据类型是 object
+- 未定义变量的数据类型为 undefined
+
+
