@@ -657,4 +657,160 @@ typeof null                   // 返回 object
 - null 的数据类型是 object
 - 未定义变量的数据类型为 undefined
 
+### 正则表达式
+
+```
+/正则表达式主体/修饰符(可选)
+```
+
+在 JavaScript 中，正则表达式通常用于两个字符串方法 : search() 和 replace()。
+
+search() 方法 用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串，并返回子串的起始位置。
+
+replace() 方法 用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+
+```
+var str = "Visit Runoob!"; 
+var n = str.search(/Runoob/i);
+```
+
+```
+6 //output
+```
+
+```
+var str = document.getElementById("demo").innerHTML; 
+var txt = str.replace(/microsoft/i,"Runoob");
+```
+
+```
+Visit Runoob! //str
+```
+
+#### 正则匹配修饰符
+
+| 修饰符 | 描述                                                     |
+| ------ | -------------------------------------------------------- |
+| i      | 执行对大小写不敏感的匹配。                               |
+| g      | 执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。 |
+| m      | 执行多行匹配。                                           |
+
+#### 正则表达式模式
+
+| 表达式 | 描述                       |
+| ------ | -------------------------- |
+| [abc]  | 查找方括号之间的任何字符。 |
+| [0-9]  | 查找任何从 0 至 9 的数字。 |
+| (x\|y) | 查找任何以 \| 分隔的选项。 |
+
+| 元字符 | 描述                                        |
+| ------ | ------------------------------------------- |
+| \d     | 查找数字。                                  |
+| \s     | 查找空白字符。                              |
+| \b     | 匹配单词边界。                              |
+| \uxxxx | 查找以十六进制数 xxxx 规定的 Unicode 字符。 |
+
+| 量词 | 描述                                 |
+| ---- | ------------------------------------ |
+| n+   | 匹配任何包含至少一个 *n* 的字符串。  |
+| n*   | 匹配任何包含0个或多个 *n* 的字符串。 |
+| n?   | 匹配任何包含0个或1个 *n* 的字符串。  |
+
+
+
+### 异常处理
+
+try 语句测试代码块的错误。
+
+catch 语句处理错误。
+
+throw 语句创建自定义错误。
+
+finally 语句在 try 和 catch 语句之后，无论是否有触发异常，该语句都会执行。
+
+#### try/catch
+
+try 语句允许我们定义在执行时进行错误测试的代码块。
+
+catch 语句允许我们定义当 try 代码块发生错误时，所执行的代码块。
+
+JavaScript 语句 try 和 catch 是成对出现的。
+
+```js
+try {
+    ...    //异常的抛出
+} catch(e) {
+    ...    //异常的捕获与处理
+} finally {
+    ...    //结束处理
+}
+```
+
+```js
+var txt=""; 
+function message() 
+{ 
+    try { 
+        adddlert("Welcome guest!"); 
+    } catch(err) { 
+        txt="本页有一个错误。\n\n"; 
+        txt+="错误描述：" + err.message + "\n\n"; 
+        txt+="点击确定继续。\n\n"; 
+        alert(txt); 
+    } 
+}
+```
+
+#### finally
+
+finally 语句不论之前的 try 和 catch 中是否产生异常都会执行该代码块。
+
+```js
+function myFunction() {
+  var message, x;
+  message = document.getElementById("p01");
+  message.innerHTML = "";
+  x = document.getElementById("demo").value;
+  try { 
+    if(x == "") throw "值是空的";
+    if(isNaN(x)) throw "值不是一个数字";
+    x = Number(x);
+    if(x > 10) throw "太大";
+    if(x < 5) throw "太小";
+  }
+  catch(err) {
+    message.innerHTML = "错误: " + err + ".";
+  }
+  finally {
+    document.getElementById("demo").value = "";
+  }
+}
+```
+
+#### throw
+
+类似于 python 的 raise。
+throw 语句允许我们创建自定义错误.
+
+```js
+function myFunction() {
+    var message, x;
+    message = document.getElementById("message");
+    message.innerHTML = "";
+    x = document.getElementById("demo").value;
+    try { 
+        if(x == "")  throw "值为空";
+        if(isNaN(x)) throw "不是数字";
+        x = Number(x);
+        if(x < 5)    throw "太小";
+        if(x > 10)   throw "太大";
+    }
+    catch(err) {
+        message.innerHTML = "错误: " + err;
+    }
+}
+```
+
+### 错误调试
+
 
