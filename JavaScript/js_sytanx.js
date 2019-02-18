@@ -37,3 +37,28 @@ function add_str() {
 
     document.write(a + b);
 }
+
+// 表单验证1
+function validateForm() {
+    var x = document.forms["form1"]["name"].value;
+    if (x == null || x == "") {
+        alert("需要输入名字。");
+        return false;
+    }
+}
+
+// 表单验证2
+function validateForm2() {
+    var x, text;
+
+    // 获取 id="numb" 的值
+    x = document.getElementById("numb").value;
+
+    // 如果输入的值 x 不是数字或者小于 1 或者大于 10，则提示错误 Not a Number or less than one or greater than 10
+    if (isNaN(x) || x < 1 || x > 10) {
+        text = "输入错误";
+    } else {
+        text = "输入正确";
+    }
+    document.getElementById("demo").innerHTML = text;
+}

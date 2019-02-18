@@ -15,7 +15,7 @@
     <script>write()</script>
     <p id="will_change">我将被修改</p>
     <input type="button" onclick="operate_html('will_change')" value="上面的字将会改变"><br>
-    <input type="button" onclick="write_on_console()" value="console会有输出！"> </body>
+    <input type="button" onclick="write_on_console()" value="console会有输出！">
 
     <p>
         <script>var_array()</script>
@@ -27,6 +27,24 @@
         <input type="button" onclick="displayDate()" value="点这里"><br>
         <temp id="now"></temp>
     </p>
-    
+
+    <p>
+        <form name="form1" action="demo_form.php" onsubmit="return validateForm()" method="post">
+            名字: <input type="text" name="name">
+            <input type="submit" value="提交">
+        </form>
+    </p>
+
+    <h1>JavaScript 验证输入</h1>
+
+    <p>请输入 1 到 10 之间的数字：</p>
+
+    <input id="numb">
+
+    <button type="button" onclick="myFunction()">提交</button>
+
+    <p id="demo"></p>
+</body>
+
 
 </html>

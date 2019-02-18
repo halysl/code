@@ -844,4 +844,105 @@ function myFunction() {
 }
 ```
 
-### 表单
+### 表单验证
+
+通过 js 对 html 页面的表单进行验证。
+
+JavaScript 可用来在数据被送往服务器前对 HTML 表单中的这些输入数据进行验证。
+
+表单数据经常需要使用 JavaScript 来验证其正确性：
+
+- 验证表单数据是否为空？
+- 验证输入是否是一个正确的email地址？
+- 验证日期是否输入正确？
+- 验证表单输入内容是否为数字型？
+
+#### 必填项
+
+下面的函数用来检查用户是否已填写表单中的必填（或必选）项目。假如必填或必选项为空，那么警告框会弹出，并且函数的返回值为 false，否则函数的返回值则为 true（意味着数据没有问题）
+
+```js
+function validateForm()
+{
+  var x=document.forms["myForm"]["fname"].value;
+  if (x==null || x=="")
+  {
+    alert("姓必须填写");
+    return false;
+  }
+}
+```
+
+```html
+<form name="myForm" action="demo-form.php" onsubmit="return validateForm()" method="post">
+姓: <input type="text" name="fname">
+<input type="submit" value="提交">
+</form>
+```
+
+### JSON
+
+JSON 是用于存储和传输数据的格式。
+
+JSON 通常用于服务端向网页传递数据 。
+
+- JSON 英文全称 JavaScript Object Notation
+- JSON 是一种轻量级的数据交换格式。
+- JSON是独立的语言 *
+- JSON 易于理解。
+
+#### 语法规则
+
+- 数据为 键/值 对。
+- 数据由逗号分隔。
+- 大括号保存对象
+- 方括号保存数组
+
+#### JSON 字符串转换为 JavaScript 对象
+
+```js
+var text = '{ "sites" : [' +
+'{ "name":"Runoob" , "url":"www.runoob.com" },' +
+'{ "name":"Google" , "url":"www.google.com" },' +
+'{ "name":"Taobao" , "url":"www.taobao.com" } ]}';
+
+var obj = JSON.parse(text);
+
+document.getElementById("demo").innerHTML = obj.sites[1].name + " " + obj.sites[1].url;
+```
+
+### void
+
+我们经常会使用到 javascript:void(0) 这样的代码，那么在 JavaScript 中 javascript:void(0) 代表的是什么意思呢？
+
+javascript:void(0) 中最关键的是 void 关键字， void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值。
+
+```html
+<a href="javascript:void(0)">单击此处什么也不会发生</a>
+```
+
+```html
+<head>
+<script type="text/javascript">
+<!--
+//-->
+</script>
+</head>
+<body>
+<a href="javascript:void(alert('Warning!!!'))">点我!</a>
+</body>
+```
+
+```html
+<head>
+<script type="text/javascript">
+<!--
+function getValue(){
+  var a,b,c;
+  a = void ( b = 5, c = 7 );
+  document.write('a = ' + a + ' b = ' + b +' c = ' + c );
+}
+//-->
+</script>
+</head>
+```
