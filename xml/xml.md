@@ -135,13 +135,64 @@ XML 标签对大小写敏感。标签 <Letter> 与标签 <letter> 是不同的�
 <message>if salary &lt; 1000 then</message>
 ```
 
-&lt;<br>	<<br>	less than
-&gt;<br>	><br>	greater than
-&amp;<br>	&<br>	ampersand
-&apos;<br>	'<br>	apostrophe
-&quot;<br>	"<br>	quotation mark
+&lt;&nbsp;	<&nbsp;	less than
+&gt;&nbsp;	>&nbsp;	greater than
+&amp;&nbsp;	&&nbsp;	ampersand
+&apos;&nbsp;	'&nbsp;	apostrophe
+&quot;&nbsp;	"&nbsp;	quotation mark
 
 ## XML 元素
+
+XML 元素指的是从（且包括）开始标签直到（且包括）结束标签的部分。
+
+一个元素可以包含：
+
+- 其他元素
+- 文本
+- 属性
+- 或混合以上所有...
+
+```xml
+<bookstore>
+    <book category="CHILDREN">
+        <title>Harry Potter</title>
+        <author>J K. Rowling</author>
+        <year>2005</year>
+        <price>29.99</price>
+    </book>
+    <book category="WEB">
+        <title>Learning XML</title>
+        <author>Erik T. Ray</author>
+        <year>2003</year>
+        <price>39.95</price>
+    </book>
+</bookstore>
+```
+
+在上面的实例中，<bookstore> 和 <book> 都有 元素内容，因为他们包含其他元素。<book> 元素也有属性（category="CHILDREN"）。<title>、<author>、<year> 和 <price> 有文本内容，因为他们包含文本。
+
+### 命名规则
+
+- 名称可以包含字母、数字以及其他的字符
+- 名称不能以数字或者标点符号开始
+- 名称不能以字母 xml（或者 XML、Xml 等等）开始
+- 名称不能包含空格
+
+### 命名习惯
+
+- 使名称具有描述性。使用下划线的名称也很不错：<first_name>、<last_name>。
+
+- 名称应简短和简单，比如：<book_title>，而不是：<the_title_of_the_book>。
+
+- 避免 "-" 字符。如果您按照这样的方式进行命名："first-name"，一些软件会认为您想要从 first 里边减去 name。
+
+- 避免 "." 字符。如果您按照这样的方式进行命名："first.name"，一些软件会认为 "name" 是对象 "first" 的属性。
+
+- 避免 ":" 字符。冒号会被转换为命名空间来使用（稍后介绍）。
+
+- XML 文档经常有一个对应的数据库，其中的字段会对应 XML 文档中的元素。有一个实用的经验，即使用数据库的命名规则来命名 XML 文档中的元素。
+
+
 ### 注
 
 XML 现在的很多使用场景已经被 JSON 替代，但在一些特殊领域，XML 的设计思想很适合存储特定数据，例如 XPATH 在爬虫的应用。
