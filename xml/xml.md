@@ -192,6 +192,57 @@ XML 元素指的是从（且包括）开始标签直到（且包括）结束标�
 
 - XML 文档经常有一个对应的数据库，其中的字段会对应 XML 文档中的元素。有一个实用的经验，即使用数据库的命名规则来命名 XML 文档中的元素。
 
+## XML 属性
+
+属性（Attribute）提供有关元素的额外信息。
+
+### XML 属性值必须加引号
+
+属性值必须被引号包围，不过单引号和双引号均可使用。比如一个人的性别，person 元素可以这样写：
+
+```xml
+<person sex="female">
+<person sex='female'>
+```
+
+如果属性值本身包含双引号，您可以使用单引号，就像这个实例：
+
+```xml
+<gangster name='George "Shotgun" Ziegler'>
+<gangster name="George &quot;Shotgun&quot; Ziegler">
+```
+
+### XML 元素和属性
+
+```xml
+<person sex="female">
+<firstname>Anna</firstname>
+<lastname>Smith</lastname>
+</person>
+```
+
+```xml
+<person>
+<sex>female</sex>
+<firstname>Anna</firstname>
+<lastname>Smith</lastname>
+</person>
+```
+
+在第一个实例中，sex 是一个属性。在第二个实例中，sex 是一个元素。这两个实例都提供相同的信息。
+
+没有什么规矩可以告诉我们什么时候该使用属性，而什么时候该使用元素。我的经验是在 HTML 中，属性用起来很便利，但是在 XML 中，您应该尽量避免使用属性。如果信息感觉起来很像数据，那么请使用元素吧。
+
+> 元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素.
+
+### 属性的劣势
+
+- 属性不能包含多个值（元素可以）
+- 属性不能包含树结构（元素可以）
+- 属性不容易扩展（为未来的变化）
+
+属性难以阅读和维护。请尽量使用元素来描述数据。而仅仅使用属性来提供与数据无关的信息。
+
 
 ### 注
 
