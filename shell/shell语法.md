@@ -197,3 +197,5 @@ echo `expr index "$string" g`
 ```
 
 ### 数组
+
+
