@@ -198,4 +198,4 @@ echo `expr index "$string" g`
 
 ### 数组
 
-
+shell 里的数组并没有
