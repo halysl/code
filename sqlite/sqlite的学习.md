@@ -49,3 +49,41 @@ sqlite>
 | .width NUM NUM | 为 "column" 模式设置列宽度。 |
 | .timer ON\|OFF | 开启或关闭 CPU 定时器。 |
 
+有了上面这张表，就可以用 .exit 或者 .quit 退出 SQLite Shell 了。
+
+### 格式化输出
+
+```shell
+sqlite>.header on
+sqlite>.mode column
+sqlite>.timer on
+sqlite>
+```
+
+```shell
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+7           James       24          Houston     10000.0
+CPU Time: user 0.000000 sys 0.000000
+```
+
+### sqlite_master 表格
+
+主表中保存数据库表的关键信息，并把它命名为 sqlite_master。
+
+```shell
+sqlite>.schema sqlite_master
+CREATE TABLE sqlite_master (
+  type text,
+  name text,
+  tbl_name text,
+  rootpage integer,
+  sql text
+);
+```
