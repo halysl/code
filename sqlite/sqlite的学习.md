@@ -121,3 +121,20 @@ SQLite 数据类型是一个用来指定任何对象的数据类型的属性。S
 | REAL	  | 值是一个浮点值，存储为 8 字节的 IEEE 浮点数字。                   |
 | TEXT	  | 值是一个文本字符串，使用数据库编码（UTF-8、UTF-16BE 或 UTF-16LE）存储。|
 | BLOB	  | 值是一个 blob 数据，完全根据它的输入存储。|
+
+## 数据库相关操作
+
+### 创建数据库
+```shell
+$sqlite3 DatabaseName.db
+```
+
+如果创建成功，会直接进入 sqlite shell，同时也可以查询 `.databases`来检查它是否在数据库列表中。
+
+### 导出数据库
+
+```shell
+sqlite3 testDB.db .dump > testDB.sql
+```
+
+### 附加数据库 
