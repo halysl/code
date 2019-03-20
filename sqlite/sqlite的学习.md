@@ -138,3 +138,62 @@ sqlite3 testDB.db .dump > testDB.sql
 ```
 
 ### 附加数据库 
+
+当在同一时间有多个数据库可用，您想使用其中的任何一个。SQLite 的 ATTACH DATABASE 语句是用来选择一个特定的数据库，使用该命令后，所有的 SQLite 语句将在附加的数据库下执行。
+
+```shell
+sqlite> ATTACH DATABASE 'testDB.db' as 'TEST';
+```
+
+```shell
+sqlite>.database
+seq  name             file
+---  ---------------  ----------------------
+0    main             /home/sqlite/testDB.db
+2    test             /home/sqlite/testDB.db
+```
+
+数据库名称 main 和 temp 被保留用于主数据库和存储临时表及其他临时数据对象的数据库。这两个数据库名称可用于每个数据库连接，且不应该被用于附加，否则将得到一个警告消息，如下所示：
+
+```shell
+sqlite>  ATTACH DATABASE 'testDB.db' as 'TEMP';
+Error: database TEMP is already in use
+sqlite>  ATTACH DATABASE 'testDB.db' as 'main';
+Error: database main is already in use；
+```
+
+### 分离数据库
+
+SQLite的 DETACH DTABASE 语句是用来把命名数据库从一个数据库连接分离和游离出来，连接是之前使用 ATTACH 语句附加的。如果同一个数据库文件已经被附加上多个别名，DETACH 命令将只断开给定名称的连接，而其余的仍然有效。您无法分离 main 或 temp 数据库。
+
+```shell
+sqlite>DETACH DATABASE 'Alias-Name';
+```
+
+假设在前面的章节中已经创建了一个数据库，并给它附加了 'test' 和 'currentDB'，使用 .database 命令，我们可以看到：
+
+```shell
+sqlite>.databases
+seq  name             file
+---  ---------------  ----------------------
+0    main             /home/sqlite/testDB.db
+2    test             /home/sqlite/testDB.db
+3    currentDB        /home/sqlite/testDB.db
+```
+
+现在，让我们尝试把 'currentDB' 从 testDB.db 中分离出来，如下所示：
+
+```shell
+sqlite> DETACH DATABASE 'currentDB';
+```
+
+现在，如果检查当前附加的数据库，您会发现，testDB.db 仍与 'test' 和 'main' 保持连接。
+
+```shell
+sqlite>.databases
+seq  name             file
+---  ---------------  ----------------------
+0    main             /home/sqlite/testDB.db
+2    test             /home/sqlite/testDB.db
+```
+
