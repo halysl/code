@@ -197,3 +197,45 @@ seq  name             file
 2    test             /home/sqlite/testDB.db
 ```
 
+## 表的操作
+
+### 创建表
+
+```shell
+CREATE TABLE database_name.table_name(
+   column1 datatype  PRIMARY KEY(one or more columns),
+   column2 datatype,
+   column3 datatype,
+   .....
+   columnN datatype,
+);
+```
+
+```shell
+sqlite> CREATE TABLE COMPANY(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+```
+
+创建表之后，可以使用 SQLIte 命令中的 .tables 命令来验证表是否已成功创建
+```shell
+sqlite>.tables
+COMPANY     DEPARTMENT
+```
+
+可以使用 SQLite .schema 命令得到表的完整信息，如下所示：
+
+```shell
+sqlite>.schema COMPANY
+CREATE TABLE COMPANY(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+```
