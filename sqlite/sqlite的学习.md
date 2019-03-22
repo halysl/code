@@ -196,6 +196,24 @@ seq  name             file
 0    main             /home/sqlite/testDB.db
 2    test             /home/sqlite/testDB.db
 ```
+### 运算符
+
+#### 算术运算符
+
+|运算符	|描述       |实例       |
+|-------|----------|----------|
+|+	      |加法 - 把运算符两边的值相加|	a + b 将得到 30|
+|-	      |减法 - 左操作数减去右操作数|	a - b 将得到 -10|
+|*	      |乘法 - 把运算符两边的值相乘|	a * b 将得到 200|
+|/       |除法 - 左操作数除以右操作数|	b / a 将得到 2|
+|%	      |取模 - 左操作数除以右操作数后得到的余数|	b % a will give 0|
+
+#### 比较运算符
+
+|运算符|	描述|	实例|
+|-----|-----|----|
+
+#### 逻辑运算符
 
 ## 表的操作
 
@@ -260,5 +278,53 @@ sqlite>
 
 ### insert
 
+```shell
+INSERT INTO TABLE_NAME (column1, column2, column3,...columnN)
+VALUES (value1, value2, value3,...valueN);
+
+INSERT INTO TABLE_NAME VALUES (value1, value2, value3,...valueN);
+```
+
 ### select
+
+```shell
+SELECT column1, column2, columnN FROM table_name;
+
+SELECT * FROM table_name;
+```
+
+```shell
+sqlite>.header on
+sqlite>.mode column
+sqlite> SELECT * FROM COMPANY;
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+7           James       24          Houston     10000.0
+```
+
+```shell
+sqlite> SELECT ID, NAME, SALARY FROM COMPANY;
+ID          NAME        SALARY
+----------  ----------  ----------
+1           Paul        20000.0
+2           Allen       15000.0
+3           Teddy       20000.0
+4           Mark        65000.0
+5           David       85000.0
+6           Kim         45000.0
+7           James       10000.0
+```
+
+#### 设置输出列的宽度
+
+```shell
+sqlite>.width 10, 20, 10
+```
+
 
