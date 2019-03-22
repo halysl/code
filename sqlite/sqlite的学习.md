@@ -239,3 +239,26 @@ CREATE TABLE COMPANY(
    SALARY         REAL
 );
 ```
+
+### 删除表
+
+ DROP TABLE 语句用来删除表定义及其所有相关数据、索引、触发器、约束和该表的权限规范。
+
+ ```shell
+ DROP TABLE database_name.table_name;
+ ```
+
+ ```shell
+sqlite>.tables
+COMPANY       test.COMPANY
+sqlite>DROP TABLE COMPANY;
+sqlite>.tables
+sqlite>
+```
+
+## 数据操作
+
+### insert
+
+### select
+
