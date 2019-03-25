@@ -489,7 +489,54 @@ ID          NAME        AGE         ADDRESS     SALARY
 
 ### order by 子句
 
+SQLite 的 ORDER BY 子句是用来基于一个或多个列按升序或降序顺序排列数据。
+
+```shell
+SELECT column-list 
+FROM table_name 
+[WHERE condition] 
+[ORDER BY column1, column2, .. columnN] [ASC | DESC];
+```
+
+
 ### group by 子句
+
+SQLite 的 GROUP BY 子句用于与 SELECT 语句一起使用，来对相同的数据进行分组。
+
+在 SELECT 语句中，GROUP BY 子句放在 WHERE 子句之后，放在 ORDER BY 子句之前。
+
+```shell
+SELECT column-list
+FROM table_name
+WHERE [ conditions ]
+GROUP BY column1, column2....columnN
+ORDER BY column1, column2....columnN
+```
+
+这里的 select 想要查处的列基本都有聚合函数的影子。
 
 ### having 子句
 
+HAVING 子句允许指定条件来过滤将出现在最终结果中的分组结果。
+
+WHERE 子句在所选列上设置条件，而 HAVING 子句则在由 GROUP BY 子句创建的分组上设置条件。
+
+```shell
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+```
+
+在一个查询中，HAVING 子句必须放在 GROUP BY 子句之后，必须放在 ORDER BY 子句之前。下面是包含 HAVING 子句的 SELECT 语句的语法：
+
+```shell
+SELECT column1, column2
+FROM table1, table2
+WHERE [ conditions ]
+GROUP BY column1, column2
+HAVING [ conditions ]
+ORDER BY column1, column2
+```
