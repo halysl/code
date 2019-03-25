@@ -364,4 +364,132 @@ ID          NAME        SALARY
 sqlite>.width 10, 20, 10
 ```
 
+### update
+
+```shell
+UPDATE table_name
+SET column1 = value1, column2 = value2...., columnN = valueN
+WHERE [condition];
+```
+
+如果没有 where 子句，那么表格的某一列的值全部更新。
+
+### delete
+
+```shell
+DELETE FROM table_name
+WHERE [condition];
+```
+
+如果没有 where 子句，那么将删除表格的所有记录。
+
+### where 子句
+
+WHERE 子句用于指定从一个表或多个表中获取数据的条件。
+
+如果满足给定的条件，即为真（true）时，则从表中返回特定的值。您可以使用 WHERE 子句来过滤记录，只获取需要的记录。
+
+WHERE 子句不仅可用在 SELECT 语句中，它也可用在 UPDATE、DELETE 语句中。
+
+WHERE 可以完美配合 `运算符` 里提到的符号进行逻辑判断。
+
+### like 子句
+
+SQLite 的 LIKE 运算符是用来匹配通配符指定模式的文本值。如果搜索表达式与模式表达式匹配，LIKE 运算符将返回真（true），也就是 1。这里有两个通配符与 LIKE 运算符一起使用：
+
+- 百分号 （%）
+- 下划线 （_）
+
+百分号（%）代表零个、一个或多个数字或字符。下划线（_）代表一个单一的数字或字符。这些符号可以被组合使用。
+
+#### 实例
+
+|语句                      |描述                |
+|--------------------------|-------------------|
+|WHERE SALARY LIKE '200%'  |查找以 200 开头的任意值|
+|WHERE SALARY LIKE '%200%'	|查找任意位置包含 200 的任意值|
+|WHERE SALARY LIKE '_00%'	|查找第二位和第三位为 00 的任意值|
+|WHERE SALARY LIKE '2_%_%'	|查找以 2 开头，且长度至少为 3 个字符的任意值|
+|WHERE SALARY LIKE '%2'	   |查找以 2 结尾的任意值|
+|WHERE SALARY LIKE '_2%3'	|查找第二位为 2，且以 3 结尾的任意值|
+|WHERE SALARY LIKE '2___3'	|查找长度为 5 位数，且以 2 开头以 3 结尾的任意值|
+
+
+### glob 子句
+
+SQLite 的 GLOB 运算符是用来匹配通配符指定模式的文本值。如果搜索表达式与模式表达式匹配，GLOB 运算符将返回真（true），也就是 1。与 LIKE 运算符不同的是，GLOB 是大小写敏感的，对于下面的通配符，它遵循 UNIX 的语法。
+
+- 星号 （*）
+- 问号 （?）
+
+星号（*）代表零个、一个或多个数字或字符。问号（?）代表一个单一的数字或字符。这些符号可以被组合使用。
+
+#### 实例
+
+|语句                      |描述|
+|--------------------------|----|
+|WHERE SALARY GLOB '200*'  |查找以 200 开头的任意值|
+|WHERE SALARY GLOB '*200*'	|查找任意位置包含 200 的任意值|
+|WHERE SALARY GLOB '?00*'	|查找第二位和第三位为 00 的任意值|
+|WHERE SALARY GLOB '2??'	|查找以 2 开头，且长度至少为 3 个字符的任意值|
+|WHERE SALARY GLOB '*2'	   |查找以 2 结尾的任意值|
+|WHERE SALARY GLOB '?2*3'	|查找第二位为 2，且以 3 结尾的任意值|
+|WHERE SALARY GLOB '2???3'	|查找长度为 5 位数，且以 2 开头以 3 结尾的任意值|
+
+### limit 子句
+
+SQLite 的 LIMIT 子句用于限制由 SELECT 语句返回的数据数量。
+
+```shell
+SELECT column1, column2, columnN 
+FROM table_name
+LIMIT [no of rows]
+```
+
+```shell
+SELECT column1, column2, columnN 
+FROM table_name
+LIMIT [no of rows] OFFSET [row num]
+```
+
+SQLite 引擎将返回从下一行开始直到给定的 OFFSET 为止的所有行。
+
+#### 实例
+
+```shell
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+7           James       24          Houston     10000.0
+
+sqlite> SELECT * FROM COMPANY LIMIT 6;
+
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+
+sqlite> SELECT * FROM COMPANY LIMIT 3 OFFSET 2;
+
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+```
+
+### order by 子句
+
+### group by 子句
+
+### having 子句
 
