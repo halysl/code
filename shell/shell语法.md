@@ -596,6 +596,196 @@ fi
 文件存在
 ```
 
+### 流程控制
+
+#### if...else...
+
+if...
+
+```shell
+if condition
+then
+    command1 
+    command2
+    ...
+    commandN 
+fi
+```
+
+单行 if...
+
+```shell
+if [ $(ps -ef | grep -c "ssh") -gt 1 ]; then echo "true"; fi
+```
+
+if...else...
+
+```shell
+if condition
+then
+    command1 
+    command2
+    ...
+    commandN
+else
+    command
+fi
+```
+
+if...else-if...else...
+
+```shell
+if condition1
+then
+    command1
+elif condition2 
+then 
+    command2
+else
+    commandN
+fi
+```
+
+#### for
+
+```shell
+for var in item1 item2 ... itemN
+do
+    command1
+    command2
+    ...
+    commandN
+done
+```
+
+单行 for
+
+```shell
+for var in item1 item2 ... itemN; do command1; command2… done;
+```
+
+```shell
+for loop in 1 2 3 4 5; do echo "The value is: $loop"; done
+
+The value is: 1
+The value is: 2
+The value is: 3
+The value is: 4
+The value is: 5
+```
+
+#### while
+
+```shell
+while condition
+do
+    command
+done
+```
+
+```shell
+#!/bin/bash
+int=1
+while(( $int<=5 ))
+do
+    echo $int
+    let "int++"
+done
+```
+
+```shell
+1
+2
+3
+4
+5
+```
+
+#### until
+
+until 循环执行一系列命令直至条件为 true 时停止。
+
+until 循环与 while 循环在处理方式上刚好相反。
+
+```shell
+until condition
+do
+    command
+done
+```
+
+```shell
+#!/bin/bash
+
+a=0
+
+until [ ! $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done
+```
+
+```shell
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+#### case
+
+Shell case语句为多选择语句。可以用case语句匹配一个值与一个模式，如果匹配成功，执行相匹配的命令。
+
+```shell
+case 值 in
+模式1)
+    command1
+    command2
+    ...
+    commandN
+    ;;
+模式2）
+    command1
+    command2
+    ...
+    commandN
+    ;;
+esac
+```
+
+```shell
+echo '输入 1 到 4 之间的数字:'
+echo '你输入的数字为:'
+read aNum
+case $aNum in
+    1)  echo '你选择了 1'
+    ;;
+    2)  echo '你选择了 2'
+    ;;
+    3)  echo '你选择了 3'
+    ;;
+    4)  echo '你选择了 4'
+    ;;
+    *)  echo '你没有输入 1 到 4 之间的数字'
+    ;;
+esac
+```
+
+#### break
+
+跳出所有循环。
+
+#### continue
+
+跳出当次循环。
+
 ### 常用指令
 
 #### echo
