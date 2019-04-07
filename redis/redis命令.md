@@ -164,3 +164,19 @@ Redis 有序集合和集合一样也是string类型元素的集合,且不允许�
 |18	|ZSCORE key member|返回有序集中，成员的分数值|
 |19	|ZUNIONSTORE destination numkeys key [key ...]|计算给定的一个或多个有序集的并集，并存储在新的 key 中|
 |20	|ZSCAN key cursor [MATCH pattern] [COUNT count]|迭代有序集合中的元素（包括元素成员和元素分值）|
+
+## HyperLogLog
+
+Redis HyperLogLog 是用来做基数统计的算法，HyperLogLog 的优点是，在输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定 的、并且是很小的。
+
+在 Redis 里面，每个 HyperLogLog 键只需要花费 12 KB 内存，就可以计算接近 2^64 个不同元素的基 数。这和计算基数时，元素越多耗费内存就越多的集合形成鲜明对比。
+
+但是，因为 HyperLogLog 只会根据输入元素来计算基数，而不会储存输入元素本身，所以 HyperLogLog 不能像集合那样，返回输入的各个元素。
+
+比如数据集 {1, 3, 5, 7, 5, 7, 8}， 那么这个数据集的基数集为 {1, 3, 5 ,7, 8}, 基数(不重复元素)为5。 基数估计就是在误差可接受的范围内，快速计算基数。
+
+|序号|命令|描述|
+|---|----|---|
+|1	|PFADD key element [element ...] |添加指定元素到 HyperLogLog 中。|
+|2	|PFCOUNT key [key ...] |返回给定 HyperLogLog 的基数估算值。|
+|3	|PFMERGE destkey sourcekey [sourcekey ...]|将多个 HyperLogLog 合并为一个 HyperLogLog|
