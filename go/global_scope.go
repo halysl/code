@@ -1,18 +1,18 @@
 package main
 // 输出：GOO
-var a = "G"
+var g = "G"
 
 func globalScope() {
-   n()
-   m()
-   n()
+   ng()
+   mg()
+   ng()
 }
 
-func n() {
-   print(a)
+func ng() {
+   print(g)
 }
 
-func m() {
-   a = "O" // 重新赋值
-   print(a)
+func mg() {
+   g = "O" // 重新赋值
+   print(g)
 }

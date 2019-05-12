@@ -1,16 +1,16 @@
 package main
 // 推测：输出GOG
-var a = "G"
+var l = "G"
 
 func localScope() {
-   n()
-   m()
-   n()
+   nl()
+   ml()
+   nl()
 }
 
-func n() { print(a) }
+func nl() { print(l) }
 
-func m() {
-   a := "O"
-   print(a)
+func ml() {
+   l := "O"
+   print(l)
 }
