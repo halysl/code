@@ -24,3 +24,12 @@ class DataTransformat:
             arrary.append(link.val)
             link = link.next
         return arrary
+    
+    @staticmethod
+    def find_node(head, value):
+        tmp = head
+        while tmp:
+            if tmp.val == value:
+                return tmp
+            tmp = tmp.next
+        return None
