@@ -1,8 +1,5 @@
+from common import DataTransformat, ListNode
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
 
 class Solution:
     def middle_node_1(self, head: ListNode) -> ListNode:
@@ -31,27 +28,6 @@ class Solution:
           head = head.next
           middle_index -= 1
         return head
-
-
-class DataTransformat:
-    @staticmethod
-    def list_2_link(arrary):
-      # 倒插取头
-        nex = None
-        head = None
-        for i in arrary[::-1]:
-            head = ListNode(i)
-            head.next = nex
-            nex = head
-        return head
-
-    @staticmethod
-    def link_2_list(link):
-        arrary = []
-        while link:
-            arrary.append(link.val)
-            link = link.next
-        return arrary
 
 
 if __name__ == "__main__":
