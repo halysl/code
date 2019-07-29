@@ -21,7 +21,7 @@ class Solution(object):
 
     @staticmethod
     def hasCycle2(head):
-        fast=slow=head 
+        fast = slow = head 
         while fast and fast.next:
             slow=slow.next
             fast=fast.next.next
