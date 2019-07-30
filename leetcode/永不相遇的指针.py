@@ -93,7 +93,7 @@ def run(slow, fast, sp,fp):
         print_now()
 
 if __name__ == "__main__":
-    # 环长16，初始位置差3，速度分别为1和5
+    print("环长16，初始位置差3，速度分别为1和5")
     lclist = create_lclist(16)
     lclist.printall()
     slow, fast = set_location(lclist, gap=3)
