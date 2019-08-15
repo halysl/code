@@ -189,3 +189,14 @@ class Timer:
 
     def __exit__(self, *args):
         self.stop()
+
+
+def reverse(head):
+    pre = None
+    cur = head
+    while cur:
+        tmp = cur.next
+        cur.next = pre
+        pre = cur
+        cur = tmp
+    return pre, head
